@@ -362,10 +362,16 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 -analyzer:"D:/Application Files/Unity/Editor And Learn/2022.3.16f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"D:/Application Files/Unity/Editor And Learn/2022.3.16f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
-"Assets/Scripts/Player/PlayerForwardMovementController.cs"
+"Assets/Scripts/Environment/Environment.cs"
+"Assets/Scripts/Environment/EnvironmentCoin.cs"
+"Assets/Scripts/Environment/EnvironmentFloorChunk.cs"
+"Assets/Scripts/Environment/ICollectable.cs"
 "Assets/Scripts/Player/PlayerJumpController.cs"
-"Assets/Scripts/Player/PlayerLaneStateMachine.cs"
+"Assets/Scripts/Player/PlayerLane.cs"
 "Assets/Scripts/Player/PlayerSideMovementController.cs"
+"Assets/Timer/Example/TestTimerBehaviour.cs"
+"Assets/Timer/Source/Timer.cs"
+"Assets/Timer/Source/TimerExtensions.cs"
 -langversion:9.0
 
 /deterministic
