@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class EnvironmentCoin : Environment, ICollectable
 {
-    
+    public void Collect()
+    {
+        Destroy(gameObject);
+    }
 }

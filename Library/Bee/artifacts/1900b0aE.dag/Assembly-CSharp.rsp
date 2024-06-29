@@ -366,6 +366,7 @@
 "Assets/Scripts/Environment/EnvironmentCoin.cs"
 "Assets/Scripts/Environment/EnvironmentFloorChunk.cs"
 "Assets/Scripts/Environment/ICollectable.cs"
+"Assets/Scripts/Player/PlayerCollectionController.cs"
 "Assets/Scripts/Player/PlayerJumpController.cs"
 "Assets/Scripts/Player/PlayerLane.cs"
 "Assets/Scripts/Player/PlayerSideMovementController.cs"
