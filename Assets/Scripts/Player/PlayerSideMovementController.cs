@@ -18,15 +18,15 @@ public class PlayerSideMovementController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            currentLane.Lane--;
+            currentLane.MoveToAdjacentLeft();
         }
 
         if (Input.GetKeyDown(KeyCode.D))
         {
-            currentLane.Lane++;
+            currentLane.MoveToAdjacentRight();
         }
 
-        float _desiredX = defaultX + ((currentLane.Lane - 1) * distanceBetweenLanes);
+        float _desiredX = defaultX + ((currentLane.Get() - 1) * distanceBetweenLanes);
         newPositionX = _desiredX;
 
         transform.position = new Vector3(newPositionX, transform.position.y, transform.position.z);

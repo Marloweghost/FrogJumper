@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlayerCollectionController : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider collider)
+    private void OnTriggerEnter(Collider _collider)
     {
-        if (collider.TryGetComponent(out ICollectable collectableObject))
+        if (_collider.TryGetComponent(out ICollectable _collectableObject))
         {
-            collectableObject.Collect();
+            _collectableObject.Collect();
         }
     }
 }

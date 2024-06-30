@@ -8,7 +8,7 @@ public class PlayerLane
     /// <summary>
     /// 0 - Left, 1 - Center, 2 - Right
     /// </summary>
-    public int Lane
+    private int Lane
     {
         get => lane;
         set
@@ -23,5 +23,20 @@ public class PlayerLane
             }
             else lane = value;
         }
+    }
+
+    public void MoveToAdjacentLeft()
+    {
+        Lane--;
+    }
+
+    public void MoveToAdjacentRight()
+    {
+        Lane++;
+    }
+
+    public int Get()
+    {
+        return lane;
     }
 }
