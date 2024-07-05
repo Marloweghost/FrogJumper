@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollectedCoinsManager : IService
+public class CollectedCoinsManager : MonoBehaviour, IService
 {
-    private int coinsCollected = 0;
+    [SerializeField] private int coinsCollected = 0;
     private int CoinsCollected
     {
         get => coinsCollected;

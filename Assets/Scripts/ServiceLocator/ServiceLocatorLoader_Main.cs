@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class ServiceLocatorLoader_Main : MonoBehaviour
 {
+    [SerializeField] private CollectedCoinsManager collectedCoinsManager;
+    [SerializeField] private CoinSpawner coinSpawner;
+    [SerializeField] private LaneManager laneManager;
+
     private void Awake()
     {
         ServiceLocator.Initialize();
 
-        CollectedCoinsManager _collectedCoinManager = new CollectedCoinsManager();
-        ServiceLocator.Instance.Register(_collectedCoinManager);
+        ServiceLocator.Instance.Register(collectedCoinsManager);
+        ServiceLocator.Instance.Register(coinSpawner);
+        ServiceLocator.Instance.Register(laneManager);
     }
 }

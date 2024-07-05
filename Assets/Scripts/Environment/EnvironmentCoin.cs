@@ -11,6 +11,7 @@ public class EnvironmentCoin : Environment, ICollectable
 
         Debug.Log($"Coins count: {_goldController.GetCoinsCollectedCount()}");
 
-        Destroy(gameObject);
+        var _coinSpawner = ServiceLocator.Instance.Get<CoinSpawner>();
+        _coinSpawner.Despawn(this);
     }
 }

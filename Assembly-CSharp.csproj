@@ -71,9 +71,12 @@
     <Compile Include="Assets\Scripts\Environment\ICollectable.cs" />
     <Compile Include="Assets\Scripts\Environment\Environment.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerLane.cs" />
+    <Compile Include="Assets\Scripts\Management\LaneManager.cs" />
     <Compile Include="Assets\Timer\Example\TestTimerBehaviour.cs" />
     <Compile Include="Assets\Scripts\Environment\EnvironmentCoin.cs" />
+    <Compile Include="Assets\Scripts\Spawners\CoinSpawner.cs" />
     <Compile Include="Assets\Timer\Source\Timer.cs" />
+    <Compile Include="Assets\Scripts\ObjectPooler\CustomPool.cs" />
     <Compile Include="Assets\Scripts\Environment\EnvironmentFloorChunk.cs" />
   </ItemGroup>
   <ItemGroup>
