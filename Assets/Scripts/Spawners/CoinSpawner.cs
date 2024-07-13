@@ -3,39 +3,44 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoinSpawner : MonoBehaviour, IService
+public class CoinSpawner : Spawner<EnvironmentCoin>, IService
 {
-    [SerializeField] private EnvironmentCoin coinPrefab;
-    [SerializeField] private int prewarmCoinCount;
+    [Header("Specific settings")]
     [SerializeField] private float spawnCooldown;
-    [SerializeField] private Transform spawnPoint;
 
-    private CustomPool<EnvironmentCoin> coinPool;
     private Timer timer;
     private LaneManager laneManager;
     private System.Random random = new System.Random();
 
-    public void Despawn(EnvironmentCoin environmentCoin)
+    public override EnvironmentCoin Spawn()
     {
-        coinPool.Release(environmentCoin);
+        return base.Spawn();
+    }
+
+    public override void Despawn(EnvironmentCoin environmentCoin)
+    {
+        base.Despawn(environmentCoin);
     }
 
     private void Start()
     {
         laneManager = ServiceLocator.Instance.Get<LaneManager>();
-
-        coinPool = new CustomPool<EnvironmentCoin>(coinPrefab, prewarmCoinCount);
         StartSpawn();
     }
 
     private void StartSpawn()
     {
-        timer = Timer.Register(spawnCooldown, Spawn, isLooped: true);
+        timer = Timer.Register(spawnCooldown, SpawnCoin, isLooped: true);
     }
 
-    private void Spawn()
+    private void StopSpawn()
     {
-        EnvironmentCoin _coin = coinPool.Get();
+        Timer.Cancel(timer);
+    }
+
+    private void SpawnCoin()
+    {
+        EnvironmentCoin _coin = Spawn();
         _coin.transform.position = GenerateRandomLanePosition();
     }
 

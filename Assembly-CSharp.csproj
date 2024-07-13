@@ -62,10 +62,14 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Management\CollectedCoinsManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerCollectionController.cs" />
+    <Compile Include="Assets\Scripts\Spawners\Spawner.cs" />
     <Compile Include="Assets\Scripts\ServiceLocator\ServiceLocator.cs" />
     <Compile Include="Assets\Scripts\ServiceLocator\IService.cs" />
     <Compile Include="Assets\Timer\Source\TimerExtensions.cs" />
+    <Compile Include="Assets\Scripts\Spawners\Despawner.cs" />
+    <Compile Include="Assets\Scripts\Environment\IFloor.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerSideMovementController.cs" />
+    <Compile Include="Assets\Scripts\Environment\EnvironmentMovement.cs" />
     <Compile Include="Assets\Scripts\ServiceLocator\ServiceLocatorLoader_Main.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerJumpController.cs" />
     <Compile Include="Assets\Scripts\Environment\ICollectable.cs" />
@@ -76,7 +80,9 @@
     <Compile Include="Assets\Scripts\Environment\EnvironmentCoin.cs" />
     <Compile Include="Assets\Scripts\Spawners\CoinSpawner.cs" />
     <Compile Include="Assets\Timer\Source\Timer.cs" />
+    <Compile Include="Assets\Scripts\Spawners\FloorSpawner.cs" />
     <Compile Include="Assets\Scripts\ObjectPooler\CustomPool.cs" />
+    <Compile Include="Assets\Scripts\Environment\IDespawnable.cs" />
     <Compile Include="Assets\Scripts\Environment\EnvironmentFloorChunk.cs" />
   </ItemGroup>
   <ItemGroup>

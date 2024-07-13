@@ -7,6 +7,7 @@ public class ServiceLocatorLoader_Main : MonoBehaviour
     [SerializeField] private CollectedCoinsManager collectedCoinsManager;
     [SerializeField] private CoinSpawner coinSpawner;
     [SerializeField] private LaneManager laneManager;
+    [SerializeField] private FloorSpawner floorSpawner;
 
     private void Awake()
     {
@@ -15,5 +16,6 @@ public class ServiceLocatorLoader_Main : MonoBehaviour
         ServiceLocator.Instance.Register(collectedCoinsManager);
         ServiceLocator.Instance.Register(coinSpawner);
         ServiceLocator.Instance.Register(laneManager);
+        ServiceLocator.Instance.Register(floorSpawner);
     }
 }
