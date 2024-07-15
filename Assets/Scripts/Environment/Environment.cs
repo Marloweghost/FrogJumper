@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Environment : MonoBehaviour
 {
-    [SerializeField] protected float moveSpeed = 2f;
+    [SerializeField] protected float moveSpeed = 0f;
 
     private void Update()
     {

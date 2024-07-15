@@ -62,11 +62,13 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Management\CollectedCoinsManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerCollectionController.cs" />
+    <Compile Include="Assets\Scripts\Environment\PowerUps\EnvironmentPowerUp.cs" />
     <Compile Include="Assets\Scripts\Spawners\Spawner.cs" />
     <Compile Include="Assets\Scripts\ServiceLocator\ServiceLocator.cs" />
     <Compile Include="Assets\Scripts\ServiceLocator\IService.cs" />
     <Compile Include="Assets\Timer\Source\TimerExtensions.cs" />
     <Compile Include="Assets\Scripts\Spawners\Despawner.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerPowerUpController.cs" />
     <Compile Include="Assets\Scripts\Environment\IFloor.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerSideMovementController.cs" />
     <Compile Include="Assets\Scripts\Environment\EnvironmentMovement.cs" />
@@ -75,6 +77,7 @@
     <Compile Include="Assets\Scripts\Environment\ICollectable.cs" />
     <Compile Include="Assets\Scripts\Environment\Environment.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerLane.cs" />
+    <Compile Include="Assets\Scripts\Spawners\PowerUpSpawner.cs" />
     <Compile Include="Assets\Scripts\Management\LaneManager.cs" />
     <Compile Include="Assets\Timer\Example\TestTimerBehaviour.cs" />
     <Compile Include="Assets\Scripts\Environment\EnvironmentCoin.cs" />

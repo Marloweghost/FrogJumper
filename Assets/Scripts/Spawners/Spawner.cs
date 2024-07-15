@@ -8,7 +8,7 @@ public abstract class Spawner<T> : MonoBehaviour where T : MonoBehaviour
     [SerializeField] protected Transform spawnPoint;
     [SerializeField] protected Transform container;
 
-    protected CustomPool<T> pool;
+    private CustomPool<T> pool;
 
     private void Awake()
     {

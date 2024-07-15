@@ -8,6 +8,8 @@ public class ServiceLocatorLoader_Main : MonoBehaviour
     [SerializeField] private CoinSpawner coinSpawner;
     [SerializeField] private LaneManager laneManager;
     [SerializeField] private FloorSpawner floorSpawner;
+    [SerializeField] private PowerUpSpawner powerUpSpawner;
+    [SerializeField] private PlayerPowerUpController playerPowerUpController;
 
     private void Awake()
     {
@@ -17,5 +19,7 @@ public class ServiceLocatorLoader_Main : MonoBehaviour
         ServiceLocator.Instance.Register(coinSpawner);
         ServiceLocator.Instance.Register(laneManager);
         ServiceLocator.Instance.Register(floorSpawner);
+        ServiceLocator.Instance.Register(powerUpSpawner);
+        ServiceLocator.Instance.Register(playerPowerUpController);
     }
 }
