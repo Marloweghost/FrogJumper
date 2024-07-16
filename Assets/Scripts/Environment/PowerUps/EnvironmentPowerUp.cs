@@ -5,13 +5,15 @@ using UnityEngine;
 
 public class EnvironmentPowerUp : Environment, IDespawnable, ICollectable
 {
+
     private System.Random random = new System.Random();
-    private PowerUpType currentPowerUpType;
+    [SerializeField] private PowerUpType powerUpType;
 
     public void Collect()
     {
-        Debug.Log("Collected!");
-        ServiceLocator.Instance.Get<PlayerPowerUpController>().ApplyPowerUp(currentPowerUpType);
+        var _eventBus = ServiceLocator.Instance.Get<EventBus>();
+        _eventBus.Invoke(new PowerUpCollectedSignal(powerUpType));
+
         Despawn();
     }
 
@@ -23,7 +25,7 @@ public class EnvironmentPowerUp : Environment, IDespawnable, ICollectable
 
     private void OnEnable()
     {
-        currentPowerUpType = GetRandomPowerUpType();  
+        powerUpType = GetRandomPowerUpType();  
     }
 
     private PowerUpType GetRandomPowerUpType()

@@ -6,10 +6,8 @@ public class EnvironmentCoin : Environment, ICollectable, IDespawnable
 {
     public void Collect()
     {
-        var _goldController = ServiceLocator.Instance.Get<CollectedCoinsManager>();
-        _goldController.IncrementCoinsCollectedCount();
-
-        Debug.Log($"Coins count: {_goldController.GetCoinsCollectedCount()}");
+        var eventBus = ServiceLocator.Instance.Get<EventBus>();
+        eventBus.Invoke(new AddCoinsSignal(1));
 
         Despawn();
     }

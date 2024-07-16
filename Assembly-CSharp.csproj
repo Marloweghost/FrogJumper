@@ -65,6 +65,8 @@
     <Compile Include="Assets\Scripts\Environment\PowerUps\EnvironmentPowerUp.cs" />
     <Compile Include="Assets\Scripts\Spawners\Spawner.cs" />
     <Compile Include="Assets\Scripts\ServiceLocator\ServiceLocator.cs" />
+    <Compile Include="Assets\Scripts\EventBus\EventBus.cs" />
+    <Compile Include="Assets\Scripts\EventBus\Signals\AddCoinsSignal.cs" />
     <Compile Include="Assets\Scripts\ServiceLocator\IService.cs" />
     <Compile Include="Assets\Timer\Source\TimerExtensions.cs" />
     <Compile Include="Assets\Scripts\Spawners\Despawner.cs" />
@@ -76,6 +78,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerJumpController.cs" />
     <Compile Include="Assets\Scripts\Environment\ICollectable.cs" />
     <Compile Include="Assets\Scripts\Environment\Environment.cs" />
+    <Compile Include="Assets\Scripts\EventBus\Signals\PowerUpCollectedSignal.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerLane.cs" />
     <Compile Include="Assets\Scripts\Spawners\PowerUpSpawner.cs" />
     <Compile Include="Assets\Scripts\Management\LaneManager.cs" />

@@ -4,8 +4,17 @@ using UnityEngine;
 
 public class PlayerPowerUpController : MonoBehaviour, IService
 {
-    public void ApplyPowerUp(PowerUpType _powerUpType)
-    {
+    private EventBus eventBus; 
 
+    private void Start()
+    {
+        eventBus = ServiceLocator.Instance.Get<EventBus>();
+
+        eventBus.Subscribe<PowerUpCollectedSignal>(OnPowerUpCollected);
+    }
+
+    private void OnPowerUpCollected(PowerUpCollectedSignal _signal)
+    {
+        Debug.Log($"Collected {_signal.PowerUpType}!");
     }
 }

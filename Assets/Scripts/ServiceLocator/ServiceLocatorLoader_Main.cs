@@ -10,11 +10,15 @@ public class ServiceLocatorLoader_Main : MonoBehaviour
     [SerializeField] private FloorSpawner floorSpawner;
     [SerializeField] private PowerUpSpawner powerUpSpawner;
     [SerializeField] private PlayerPowerUpController playerPowerUpController;
+    private EventBus eventBus;
 
     private void Awake()
     {
         ServiceLocator.Initialize();
 
+        eventBus = new EventBus();
+        ServiceLocator.Instance.Register(eventBus);
+        
         ServiceLocator.Instance.Register(collectedCoinsManager);
         ServiceLocator.Instance.Register(coinSpawner);
         ServiceLocator.Instance.Register(laneManager);
