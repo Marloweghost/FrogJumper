@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class EnvironmentPowerUp : Environment, IDespawnable, ICollectable
 {
-
     private System.Random random = new System.Random();
     [SerializeField] private PowerUpType powerUpType;
 
