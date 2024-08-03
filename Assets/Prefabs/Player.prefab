@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3573801773523711734}
   - component: {fileID: 293471222963273911}
   - component: {fileID: 1688921275942483688}
+  - component: {fileID: 3559304894206995241}
   - component: {fileID: 7262327169359413001}
   m_Layer: 0
   m_Name: Player
@@ -175,6 +176,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96c175ccac4cbd0459313d4ea516afc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3559304894206995241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841986235535222908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45034fb869920a447991045a6a5af022, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7262327169359413001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,6 +200,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34164169b9dc3364a802455627a5a682, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slowDuration: 5
+  slowAmount: 5
+  coinMagnetPrefab: {fileID: 7644723630408776433, guid: 88a584123c1c6884dbda208a4159f706,
+    type: 3}
+  pullDuration: 5
+  pullForce: 0.3
+  pullRadius: 5
 --- !u!1 &5216303516090645141
 GameObject:
   m_ObjectHideFlags: 0

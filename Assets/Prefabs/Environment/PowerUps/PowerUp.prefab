@@ -69,7 +69,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0
-  currentPowerUpType: 1
 --- !u!23 &1722363885702888532
 MeshRenderer:
   m_ObjectHideFlags: 0

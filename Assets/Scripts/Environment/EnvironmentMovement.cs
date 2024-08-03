@@ -11,6 +11,7 @@ public class EnvironmentMovement : Environment
         eventBus = ServiceLocator.Instance.Get<EventBus>();
         eventBus.Subscribe<SlowSpeedSignal>(SlowSpeed);
         eventBus.Subscribe<AddSpeedSignal>(AddSpeed);
+        eventBus.Subscribe<SetSpeedSignal>(SetSpeed);
     }
 
     private void SlowSpeed(SlowSpeedSignal _signal)
@@ -21,5 +22,10 @@ public class EnvironmentMovement : Environment
     private void AddSpeed(AddSpeedSignal _signal)
     {
         moveSpeed += _signal.amount;
+    }
+
+    private void SetSpeed(SetSpeedSignal _signal)
+    {
+        moveSpeed = _signal.speed;
     }
 }

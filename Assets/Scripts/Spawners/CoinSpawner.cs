@@ -22,8 +22,20 @@ public class CoinSpawner : Spawner<EnvironmentCoin>, IService
         base.Despawn(environmentCoin);
     }
 
-    private void Start()
+    protected override void OnSpawnerEnabled()
     {
+        StartSpawn();
+    }
+
+    protected override void OnSpawnerDisabled()
+    {
+        StopSpawn();
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+
         laneManager = ServiceLocator.Instance.Get<LaneManager>();
         StartSpawn();
     }

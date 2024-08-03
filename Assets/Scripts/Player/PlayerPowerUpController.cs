@@ -10,10 +10,15 @@ public class PlayerPowerUpController : MonoBehaviour, IService
     private Dictionary<PowerUpType, Timer> buffTimers = new Dictionary<PowerUpType, Timer>();
 
     [Header("SpeedSlower")]
-    [SerializeField] private float slowAmount = 1f;
     [SerializeField] private float slowDuration = 5f;
+    [SerializeField] private float slowAmount = 5f;
+
     [Header("CoinMagnet")]
-    [SerializeField] private float pullSpeed = 1f;
+    [SerializeField] private GameObject coinMagnetPrefab;
+    [SerializeField] private float pullDuration = 5f;
+    [SerializeField] private float pullForce = 5f;
+    [SerializeField] private float pullRadius = 15f;
+    private GameObject coinMagnetInstance;
 
     private void Start()
     {
@@ -22,6 +27,7 @@ public class PlayerPowerUpController : MonoBehaviour, IService
         eventBus.Subscribe<PowerUpCollectedSignal>(OnPowerUpCollected);
     }
 
+    // TODO: Заменить методы на Factory
     private void OnPowerUpCollected(PowerUpCollectedSignal _signal)
     {
         Debug.Log($"Collected {_signal.PowerUpType}!");
@@ -32,7 +38,7 @@ public class PlayerPowerUpController : MonoBehaviour, IService
                 ApplySpeedSlower();
                 break;
             case PowerUpType.CoinMagnet:
-
+                ApplyCoinMagnet();
                 break;
             default:
                 Debug.Log($"{_signal.PowerUpType} behaviour is not defined!");
@@ -44,7 +50,7 @@ public class PlayerPowerUpController : MonoBehaviour, IService
     private void ApplySpeedSlower()
     {
         eventBus.Invoke(new SlowSpeedSignal(slowAmount));
-        LaunchBuffTimer(PowerUpType.SpeedSlower, slowDuration, OnSpeedSlowerExpired);
+        LaunchOrUpdateBuffTimer(PowerUpType.SpeedSlower, slowDuration, OnSpeedSlowerExpired);
     }
 
     private void OnSpeedSlowerExpired()
@@ -54,13 +60,28 @@ public class PlayerPowerUpController : MonoBehaviour, IService
     }
     #endregion
 
+    #region CoinMagnet
     private void ApplyCoinMagnet()
     {
+        if (coinMagnetInstance != null)
+        {
+            Destroy(coinMagnetInstance);
+        }
 
+        coinMagnetInstance = Instantiate(coinMagnetPrefab, transform.position, Quaternion.identity, transform);
+        coinMagnetInstance.GetComponent<CoinMagnet>().Initialize(pullForce, pullRadius);
+        LaunchOrUpdateBuffTimer(PowerUpType.CoinMagnet, pullDuration, OnCoinMagnetExpired);
     }
 
+    private void OnCoinMagnetExpired()
+    {
+        Destroy(coinMagnetInstance);
+        StopBuffTimer(PowerUpType.CoinMagnet);
+    }
+    #endregion
+
     #region BuffTimerCommands
-    private void LaunchBuffTimer(PowerUpType _key, float _duration, Action _onExpired)
+    private void LaunchOrUpdateBuffTimer(PowerUpType _key, float _duration, Action _onExpired)
     {
         if (!buffTimers.ContainsKey(_key))
         {
@@ -68,7 +89,9 @@ public class PlayerPowerUpController : MonoBehaviour, IService
         }
         else
         {
-            Debug.LogWarning("Buff timer by key already exists!");
+            buffTimers.GetValueOrDefault(_key).Cancel();
+            buffTimers.Remove(_key);
+            buffTimers.Add(_key, Timer.Register(_duration, _onExpired));
         }
     }
 

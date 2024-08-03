@@ -8,7 +8,46 @@ public abstract class Spawner<T> : MonoBehaviour where T : MonoBehaviour
     [SerializeField] protected Transform spawnPoint;
     [SerializeField] protected Transform container;
 
+    protected EventBus eventBus;
+
+    private bool isEnabled;
+    protected bool IsEnabled
+    {
+        get { return isEnabled; }
+        set 
+        { 
+            isEnabled = value;
+            if (isEnabled == true)
+            {
+                OnSpawnerEnabled();
+            }
+            else
+            {
+                OnSpawnerDisabled();
+            }
+        }
+    }
+
     private CustomPool<T> pool;
+
+    public virtual T Spawn()
+    {
+        return pool.Get();
+    }
+
+    public virtual void Despawn(T _obj)
+    {
+        pool.Release(_obj);
+    }
+
+    protected virtual void OnSpawnerEnabled()
+    {
+
+    }
+    protected virtual void OnSpawnerDisabled()
+    {
+
+    }
 
     private void Awake()
     {
@@ -27,13 +66,14 @@ public abstract class Spawner<T> : MonoBehaviour where T : MonoBehaviour
         }
     }
 
-    public virtual T Spawn()
+    protected virtual void Start()
     {
-        return pool.Get();
+        eventBus = ServiceLocator.Instance.Get<EventBus>();
+        eventBus.Subscribe<SetAllSpawnersStateSignal>(SetSpawnerState);
     }
 
-    public virtual void Despawn(T _obj)
+    private void SetSpawnerState(SetAllSpawnersStateSignal _signal)
     {
-        pool.Release(_obj);
+        IsEnabled = _signal.isEnabled;
     }
 }

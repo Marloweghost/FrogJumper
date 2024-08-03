@@ -22,8 +22,20 @@ public class PowerUpSpawner : Spawner<EnvironmentPowerUp>, IService
         base.Despawn(_obj);
     }
 
-    private void Start()
+    protected override void OnSpawnerEnabled()
     {
+        StartSpawn();
+    }
+
+    protected override void OnSpawnerDisabled()
+    {
+        StopSpawn();
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+
         laneManager = ServiceLocator.Instance.Get<LaneManager>();
         StartSpawn();
     }
@@ -31,6 +43,11 @@ public class PowerUpSpawner : Spawner<EnvironmentPowerUp>, IService
     private void StartSpawn()
     {
         timer = Timer.Register(spawnCooldown, SpawnPowerUp, isLooped: true);
+    }
+
+    private void StopSpawn()
+    {
+        Timer.Cancel(timer);
     }
 
     private void SpawnPowerUp()
@@ -46,5 +63,4 @@ public class PowerUpSpawner : Spawner<EnvironmentPowerUp>, IService
             spawnPoint.position.y,
             spawnPoint.position.z);
     }
-
 }

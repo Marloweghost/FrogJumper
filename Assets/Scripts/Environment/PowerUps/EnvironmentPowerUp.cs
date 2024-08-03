@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class EnvironmentPowerUp : Environment, IDespawnable, ICollectable
@@ -24,7 +25,7 @@ public class EnvironmentPowerUp : Environment, IDespawnable, ICollectable
 
     private void OnEnable()
     {
-        powerUpType = GetRandomPowerUpType();  
+        powerUpType = GetRandomPowerUpType();
     }
 
     private PowerUpType GetRandomPowerUpType()

@@ -27,8 +27,10 @@ public class FloorSpawner : Spawner<EnvironmentFloorChunk>, IService
             checkingBox.transform.position.z + prefabSize.z / 2);
     }
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
+
         prefabSize = prefab.gameObject.GetComponentInChildren<MeshRenderer>().bounds.size;
         checkingBox = CreateCheckingBox(prewarmCount, prefabSize, spawnPoint);
 

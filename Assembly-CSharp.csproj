@@ -60,11 +60,15 @@
     <Analyzer Include="D:\Application Files\Unity\Editor And Learn\2022.3.16f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Environment\EnvironmentObstacle.cs" />
     <Compile Include="Assets\Scripts\Management\CollectedCoinsManager.cs" />
+    <Compile Include="Assets\Scripts\Management\GameStates\GameState.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerCollectionController.cs" />
     <Compile Include="Assets\Scripts\Environment\PowerUps\EnvironmentPowerUp.cs" />
     <Compile Include="Assets\Scripts\EventBus\Signals\AddSpeedSignal.cs" />
     <Compile Include="Assets\Scripts\Spawners\Spawner.cs" />
+    <Compile Include="Assets\Scripts\Management\GameStates\DefeatGameState.cs" />
+    <Compile Include="Assets\Scripts\EventBus\Signals\SetSpeedSignal.cs" />
     <Compile Include="Assets\Scripts\ServiceLocator\ServiceLocator.cs" />
     <Compile Include="Assets\Scripts\EventBus\EventBus.cs" />
     <Compile Include="Assets\Scripts\EventBus\Signals\AddCoinsSignal.cs" />
@@ -78,16 +82,24 @@
     <Compile Include="Assets\Scripts\Environment\EnvironmentMovement.cs" />
     <Compile Include="Assets\Scripts\ServiceLocator\ServiceLocatorLoader_Main.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerJumpController.cs" />
+    <Compile Include="Assets\Scripts\Environment\ICollidable.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerCollisionController.cs" />
     <Compile Include="Assets\Scripts\Environment\ICollectable.cs" />
     <Compile Include="Assets\Scripts\Environment\Environment.cs" />
+    <Compile Include="Assets\Scripts\EventBus\Signals\PowerUpTypeChangedSignal.cs" />
     <Compile Include="Assets\Scripts\EventBus\Signals\PowerUpCollectedSignal.cs" />
+    <Compile Include="Assets\Scripts\EventBus\Signals\SetGameStateSignal.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerLane.cs" />
+    <Compile Include="Assets\Scripts\EventBus\Signals\SetAllSpawnersStateSignal.cs" />
+    <Compile Include="Assets\Scripts\Management\GameStates\PlayingGameState.cs" />
+    <Compile Include="Assets\Scripts\Environment\PowerUps\CoinMagnet.cs" />
     <Compile Include="Assets\Scripts\Spawners\PowerUpSpawner.cs" />
     <Compile Include="Assets\Scripts\Management\LaneManager.cs" />
     <Compile Include="Assets\Timer\Example\TestTimerBehaviour.cs" />
     <Compile Include="Assets\Scripts\Environment\EnvironmentCoin.cs" />
     <Compile Include="Assets\Scripts\Spawners\CoinSpawner.cs" />
     <Compile Include="Assets\Timer\Source\Timer.cs" />
+    <Compile Include="Assets\Scripts\Management\GameStateManager.cs" />
     <Compile Include="Assets\Scripts\Spawners\FloorSpawner.cs" />
     <Compile Include="Assets\Scripts\ObjectPooler\CustomPool.cs" />
     <Compile Include="Assets\Scripts\Environment\IDespawnable.cs" />
